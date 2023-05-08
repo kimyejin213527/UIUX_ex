@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var fido = {
+            name : "Fido",
+            weight : 40,
+            breed : "잡종",
+            loves : ["걷기1", "공 물어오기1", "공을 물어뜯기1"]
+        }
+        var prop;
+        for(prop in fido) {
+            alert("Fido has a" + prop + "property")
+            if(prop == "name"){
+                alert("This is" + fido[prop])
+            }
+        }
+
+        var likes = fido.loves;
+        var likesString = "Fido likes";
+
+        for(var i = 0; i<likes.length; i++) {
+            likesString += " " + likes[i];
+        }
+        alert(likesString);
+
+    </script>
+</body>
+</html>
