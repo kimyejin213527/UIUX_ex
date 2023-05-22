@@ -2,8 +2,8 @@
 
 var map = null;
 var ourCoords =  {
-	latitude: 47.624851,
-	longitude: -122.52099
+	latitude: 37.484269,
+	longitude: 126.929676
 };
 
 window.onload = getMyLocation;
@@ -30,7 +30,7 @@ var div = document.getElementById("location");
 
 	var km = computeDistance(position.coords, ourCoords);
 	var distance = document.getElementById("distance");
-	distance.innerHTML = "당신은 WickedlySmart HQ와 " + km + "km 떨어져 있습니다";
+	distance.innerHTML = "당신은 신림역과의 거리가 " + km + "km 떨어져 있습니다";
 
 	showMap(position.coords);
 }
