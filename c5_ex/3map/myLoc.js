@@ -1,6 +1,7 @@
 /* myLoc.js */
 
-//추가3 
+//추가3
+var map = null; 
 
 var ourCoords =  {
 	latitude: 47.624851,
@@ -32,6 +33,19 @@ function displayLocation(position) {
 	var distance = document.getElementById("distance");
 	distance.innerHTML = "당신은 WickedlySmart HQ와 " + km + "km 떨어져 있습니다";
 	// 추가2
+	function displayLocation(position) {
+		var latitude = position.coords.latitude;
+		var longitude = position.coords.longitude;
+
+		var div = document.getElementById("location");
+		div.innerHTML = "당신은 위도 : " + latitude + ", 경도 : " + longitude + "에 있습니다";
+
+		var km = computeDistance(position.coords, ourCoords);
+		var distance = document.getElementById("distance");
+		distance.innerHTML = "당신은 WickedlySmart HQ와 " + km + "km 떨어져 있습니다";
+
+		showMap(position.coords);
+	}
 }
 // --------------------- 준비 코드 시작 ------------------
 //
@@ -59,7 +73,17 @@ function degreesToRadians(degrees) {
 
 
 //추가1
-
+function showMap(coords) {
+	var googleLatAndLong = new google.maps.LatLng(coords.latitude,
+												  coords.longitude);
+	var mapOptions = {
+		zoom : 10,
+		center : googleLatAndLong,
+		mapTypeId : google.map.mapTypeId.ROADMAP
+	};
+	var mapDiv = document.getElementById("map");
+	map = new google.map.Map(mapDiv, mapOptions);
+}
 
 
 
